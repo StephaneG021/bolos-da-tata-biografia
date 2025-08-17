@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolos da Tatá • Nossa História</title>
+
+<!-- Fonte refinada do Google -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --aqua: #6cc9cf;
+    --rosa: #e85b95;
+    --cream: #fff6f2;
+    --ink: #36363a;
+    --shadow: rgba(0,0,0,0.08);
+    --transition: 0.4s ease;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; }
+
+  /* --- Header com logo e navegação --- */
+  header {
+    background: var(--aqua);
+    padding: 20px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo {
+    width: 150px; /* tamanho visível para teste */
+    height: auto;
+  }
+
+  header h1 { color: white; font-size: 2rem; font-weight: 700; }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: all var(--transition);
+  }
+  nav a:hover { color: var(--rosa); opacity: 1; }
+
+  /* --- Seção de biografia refinada --- */
+  section#biografia {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, #fff6f2 0%, #ffffff 100%);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px var(--shadow);
+  }
+
+  section#biografia h2 {
+    text-align: center;
+    color: var(--rosa);
+    font-size: 2.6rem;
+    margin-bottom: 35px;
+    font-weight: 600;
+  }
+
+  .bio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .bio-grid > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+  }
+
+  .bio-grid > *.visible { opacity: 1; transform: translateY(0); }
+
+  .bio-grid img {
+    flex: 1 1 350px;
+    max-width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .bio-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px var(--shadow);
+  }
+
+  .bio-text { flex: 1 1 450px; }
+  .bio-text p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.15rem;
+  }
+  .bio-text strong { color: var(--aqua); }
+
+  /* --- Footer minimalista --- */
+  footer {
+    background: var(--aqua);
+    color: white;
+    text-align: center;
+    padding: 35px 10%;
+    margin-top: 60px;
+    font-weight: 500;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+  }
+
+  /* --- Responsivo --- */
+  @media (max-width: 768px) {
+    .bio-grid { flex-direction: column; gap: 30px; }
+    header { flex-direction: column; gap: 15px; }
+    nav a { margin-left: 0; margin-right: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <!-- Logo de teste grande e visível -->
+    <img src= "C:/Usuários/chir/OneDrive/Área de Trabalho/bolos-da-tata/logo.png" alt="Bolos da Tatá" class="logo">
+    <h1>Bolos da Tatá</h1>
+  </div>
+  <nav>
+    <a href="#biografia">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+    <a href="#cadastro">Cadastro</a>
+  </nav>
+</header>
+
+<section id="biografia">
+  <h2>Nossa História</h2>
+  <div class="bio-grid">
+    <img src="https://via.placeholder.com/400x300.png?text=Bolos+da+Tat%C3%A1" alt="Nossa Loja">
+    <div class="bio-text">
+      <p>A <strong>Bolos da Tatá</strong> nasceu da vontade de transformar afeto em doçura. Tudo começou na cozinha de casa, com receitas guardadas em cadernos e bolos preparados com muito carinho.</p>
+      <p>Nosso diferencial está na atenção a cada detalhe — do sabor ao visual —, utilizando ingredientes selecionados e mantendo a tradição da confeitaria caseira com um toque moderno.</p>
+      <p>Hoje, continuamos firmes com a missão de encantar em cada fatia, oferecendo uma experiência doce e acolhedora.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Bolos da Tatá • Feito com carinho, feito com amor.
+</footer>
+
+<script>
+  const bioSection = document.querySelector('#biografia');
+  const bioGridItems = document.querySelectorAll('.bio-grid > *');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        bioGridItems.forEach((item, index) => {
+          setTimeout(() => item.classList.add('visible'), index * 200);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(bioSection);
+</script>
+
+</body>
+</html>
