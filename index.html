@@ -24,20 +24,20 @@
   /* --- Header com logo e navegação --- */
   header {
     background: var(--aqua);
-    padding: 30px 10%;
+    padding: 12px 8%; /* altura menor */
     position: sticky;
     top: 0;
     z-index: 10;
     display: flex;
     align-items: center; /* alinha logo e menu verticalmente */
     justify-content: center; /* centraliza logo + menu */
-    gap: 60px; /* espaço entre logo e menu */
+    gap: 50px; /* espaço entre logo e menu */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
   .logo {
-    max-height: 80px; /* garante proporção */
-    width: auto;
+    width: 240px; /* logo maior */
+    height: auto;
   }
 
   nav {
@@ -58,8 +58,8 @@
   /* --- Seção de biografia --- */
   section#biografia {
     max-width: 1200px;
-    margin: 100px auto;
-    padding: 60px 50px;
+    margin: 60px auto; /* menos espaço do topo */
+    padding: 50px 40px; /* caixa mais leve */
     background: #fff;
     border-radius: 25px;
     box-shadow: 0 15px 40px var(--shadow);
@@ -170,6 +170,7 @@
 
 </body>
 </html>
+
 
 
 
