@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bolos da Tatá • Nossa História</title>
+<title>Bolos da Tata • Nossa História</title>
 
 <!-- Fonte do Google -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,27 +29,28 @@
     top: 0;
     z-index: 10;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start; /* Mantém logo e menu lado a lado */
+    align-items: center; /* Centraliza verticalmente */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
-  .logo-container {
-    display: flex;
-    align-items: center;
+  .logo {
+    width: 200px;
+    height: auto;
+    margin-right: 60px; /* Espaço entre logo e menu */
   }
 
-  .logo {
-    width: 200px; /* LOGO MAIOR */
-    height: auto;
+  nav {
+    display: flex;
+    gap: 40px; /* Espaço entre os links */
   }
 
   nav a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
     font-weight: 500;
     transition: all var(--transition);
+    font-size: 1.1rem;
   }
   nav a:hover { color: var(--rosa); }
 
@@ -122,17 +123,17 @@
 
   @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; }
-    nav a { margin-left: 0; margin-right: 15px; }
+    nav { gap: 20px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-container">
-    <!-- Logo -->
-    <img src="logo.png" class="logo" alt="Logo Bolos da Tatá">
-  </div>
+  <!-- Logo -->
+  <img src="logo.png" class="logo" alt="Logo Bolos da Tata">
+
+  <!-- Menu -->
   <nav>
     <a href="#biografia">Sobre</a>
     <a href="#produtos">Produtos</a>
@@ -145,18 +146,18 @@
   <h2>Nossa História</h2>
   <div class="bio-grid">
     <!-- IMAGEM DO BOLO -->
-    <img src="bolo.png" alt="Bolo artesanal da Tatá">
+    <img src="bolo.png" alt="Bolo artesanal da Tata">
     
     <div class="bio-text">
-      <p>A <strong>Bolos da Tatá</strong> nasceu do desejo de transformar momentos simples em experiências especiais. O que começou na cozinha de casa, com receitas tradicionais feitas com dedicação, evoluiu para uma confeitaria que une tradição artesanal e sofisticação.</p>
-  <p>Cada bolo é elaborado com ingredientes selecionados e atenção cuidadosa aos detalhes, desde o sabor até o acabamento, garantindo qualidade, autenticidade e uma apresentação marcante.</p>
-  <p>Mais do que produtos, oferecemos experiências que encantam em cada fatia, tornando celebrações inesquecíveis e reforçando o compromisso de adoçar histórias com excelência e carinho.</p>
-</div>
+      <p>A <strong>Bolos da Tata</strong> nasceu do desejo de transformar momentos simples em experiências especiais. O que começou na cozinha de casa, com receitas tradicionais feitas com dedicação, evoluiu para uma confeitaria que une tradição artesanal e sofisticação.</p>
+      <p>Cada bolo é elaborado com ingredientes selecionados e atenção cuidadosa aos detalhes, desde o sabor até o acabamento, garantindo qualidade, autenticidade e uma apresentação marcante.</p>
+      <p>Mais do que produtos, oferecemos experiências que encantam em cada fatia, tornando celebrações inesquecíveis e reforçando o compromisso de adoçar histórias com excelência e carinho.</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  &copy; 2025 Bolos da Tatá
+  &copy; 2025 Bolos da Tata
 </footer>
 
 </body>
