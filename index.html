@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -37,15 +37,12 @@
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px;
   }
 
   .logo {
-    width: 150px; 
+    width: 200px; /* LOGO MAIOR */
     height: auto;
   }
-
-  header h1 { color: white; font-size: 2rem; font-weight: 700; }
 
   nav a {
     color: white;
@@ -54,14 +51,14 @@
     font-weight: 500;
     transition: all var(--transition);
   }
-  nav a:hover { color: var(--rosa); opacity: 1; }
+  nav a:hover { color: var(--rosa); }
 
-  /* --- Seção de biografia--- */
+  /* --- Seção de biografia --- */
   section#biografia {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 100px auto;
-    padding: 50px 40px;
-    background: linear-gradient(135deg, #fff6f2 0%, #ffffff 100%);
+    padding: 60px 50px;
+    background: #fff;
     border-radius: 25px;
     box-shadow: 0 15px 40px var(--shadow);
   }
@@ -69,48 +66,44 @@
   section#biografia h2 {
     text-align: center;
     color: var(--rosa);
-    font-size: 2.6rem;
-    margin-bottom: 35px;
+    font-size: 2.8rem;
+    margin-bottom: 45px;
     font-weight: 600;
   }
 
   .bio-grid {
     display: flex;
-    flex-wrap: wrap;
     gap: 50px;
     align-items: center;
+    justify-content: center;
   }
-
-  .bio-grid > * {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-  }
-
-  .bio-grid > *.visible { opacity: 1; transform: translateY(0); }
 
   .bio-grid img {
-    flex: 1 1 350px;
-    max-width: 100%;
+    flex: 1;
+    max-width: 420px;
     border-radius: 18px;
-    box-shadow: 0 8px 30px var(--shadow);
+    object-fit: cover;
+    box-shadow: 0 10px 35px var(--shadow);
     transition: transform var(--transition), box-shadow var(--transition);
   }
 
   .bio-grid img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 40px var(--shadow);
+    transform: scale(1.05);
+    box-shadow: 0 15px 45px var(--shadow);
   }
 
-  .bio-text { flex: 1 1 450px; }
+  .bio-text { 
+    flex: 1; 
+    max-width: 600px; 
+  }
   .bio-text p {
     margin-bottom: 20px;
     text-align: justify;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
   .bio-text strong { color: var(--aqua); }
 
-  /* --- Footer minimalista --- */
+  /* --- Footer --- */
   footer {
     background: var(--aqua);
     color: white;
@@ -122,8 +115,12 @@
   }
 
   /* --- Responsivo --- */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .bio-grid { flex-direction: column; gap: 30px; }
+    .bio-grid img { max-width: 100%; }
+  }
+
+  @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; }
     nav a { margin-left: 0; margin-right: 15px; }
   }
@@ -133,9 +130,8 @@
 
 <header>
   <div class="logo-container">
-    <!-- Logo  -->
-    <img src="logo.png"  class="logo">
-    <h1>Bolos da Tatá</h1>
+    <!-- Logo -->
+    <img src="logo.png" class="logo" alt="Logo Bolos da Tatá">
   </div>
   <nav>
     <a href="#biografia">Sobre</a>
@@ -148,38 +144,25 @@
 <section id="biografia">
   <h2>Nossa História</h2>
   <div class="bio-grid">
-    <img src="https://via.placeholder.com/400x300.png?text=Bolos+da+Tat%C3%A1" alt="Nossa Loja">
+    <!-- IMAGEM DO BOLO -->
+    <img src="bolo.jpg" alt="Bolo artesanal da Tatá">
+    
     <div class="bio-text">
-      <p>A <strong>Bolos da Tatá</strong> nasceu da vontade de transformar afeto em doçura. Tudo começou na cozinha de casa, com receitas guardadas em cadernos e bolos preparados com muito carinho.</p>
-      <p>Nosso diferencial está na atenção a cada detalhe — do sabor ao visual —, utilizando ingredientes selecionados e mantendo a tradição da confeitaria caseira com um toque moderno.</p>
-      <p>Hoje, continuamos firmes com a missão de encantar em cada fatia, oferecendo uma experiência doce e acolhedora.</p>
-    </div>
+      <p>A <strong>Bolos da Tatá</strong>nasceu do desejo de transformar momentos simples em experiências especiais. O que começou na cozinha de casa, com receitas tradicionais feitas com dedicação, evoluiu para uma confeitaria que une tradição artesanal e sofisticação.</p>
+  <p>Cada bolo é elaborado com ingredientes selecionados e atenção cuidadosa aos detalhes, desde o sabor até o acabamento, garantindo qualidade, autenticidade e uma apresentação marcante.</p>
+  <p>Mais do que produtos, oferecemos experiências que encantam em cada fatia, tornando celebrações inesquecíveis e reforçando o compromisso de adoçar histórias com excelência e carinho.</p>
+</div>
   </div>
 </section>
 
 <footer>
-  &copy; 2025 Bolos da Tatá • 
+  &copy; 2025 Bolos da Tatá
 </footer>
-
-<script>
-  const bioSection = document.querySelector('#biografia');
-  const bioGridItems = document.querySelectorAll('.bio-grid > *');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        bioGridItems.forEach((item, index) => {
-          setTimeout(() => item.classList.add('visible'), index * 200);
-        });
-      }
-    });
-  }, { threshold: 0.2 });
-
-  observer.observe(bioSection);
-</script>
 
 </body>
 </html>
+
+
 
 
 
