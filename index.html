@@ -29,20 +29,20 @@
     top: 0;
     z-index: 10;
     display: flex;
-    justify-content: flex-start; /* Mantém logo e menu lado a lado */
-    align-items: center; /* Centraliza verticalmente */
+    align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
   .logo {
     width: 200px;
     height: auto;
-    margin-right: 60px; /* Espaço entre logo e menu */
   }
 
   nav {
+    flex: 1; /* ocupa espaço no header */
     display: flex;
-    gap: 40px; /* Espaço entre os links */
+    justify-content: center; /* centraliza os links */
+    gap: 40px; /* espaço entre links */
   }
 
   nav a {
@@ -123,7 +123,7 @@
 
   @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; }
-    nav { gap: 20px; }
+    nav { justify-content: center; gap: 20px; }
   }
 </style>
 </head>
@@ -133,7 +133,7 @@
   <!-- Logo -->
   <img src="logo.png" class="logo" alt="Logo Bolos da Tata">
 
-  <!-- Menu -->
+  <!-- Navegação -->
   <nav>
     <a href="#biografia">Sobre</a>
     <a href="#produtos">Produtos</a>
@@ -162,6 +162,7 @@
 
 </body>
 </html>
+
 
 
 
