@@ -30,20 +30,25 @@
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* puxa o conteúdo para a esquerda */
-    gap: 60px; /* espaço entre logo e menu */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .logo {
-    width: 200px; /* logo um pouco menor */
-    height: auto;
-  }
-
-  nav {
-    display: flex;
     justify-content: flex-start;
-    gap: 40px; /* espaço entre links */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  /* Logo alinhado à esquerda */
+  .logo {
+    width: 170px; /* um pouco menor que antes */
+    height: auto;
+    flex: 0 0 auto;
+  }
+
+  /* Navegação centralizada no header */
+  nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
   }
 
   nav a {
@@ -129,6 +134,8 @@
       padding: 20px 5%;
     }
     nav { 
+      position: static; 
+      transform: none; 
       justify-content: center; 
       gap: 20px; 
     }
@@ -170,9 +177,6 @@
 
 </body>
 </html>
-
-
-
 
 
 
